@@ -1,0 +1,11 @@
+@layer base, utils, slider, slides;
+
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700&family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+
+@import 'base.css' layer(base);
+@import 'utils.css' layer(utils);
+@import 'slider-ui.css' layer(slider);
+@import 'demos.css' layer(demos);
+@import 'components.css' layer(slides);
+@import 'slides.css' layer(slides);

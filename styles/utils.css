@@ -1,0 +1,109 @@
+.capitalize {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.strike-hover {
+  position: relative;
+}
+
+.strike-hover:hover::after {
+  animation: strike-hover 0.5s ease-in forwards;
+}
+
+.strike-hover::after {
+  content: '';
+  display: block;
+  height: 10px;
+  background: var(--lime);
+  box-shadow: 0 0 15px var(--lavender-bg);
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  scale: 0 1;
+  transform-origin: left;
+}
+
+@keyframes strike-hover {
+  0% {
+    scale: 0 1;
+  }
+  100% {
+    scale: 1 1;
+  }
+}
+
+.fun-font {
+  font-family: 'Londrina Solid';
+  font-weight: 400;
+}
+
+.red {
+  color: var(--red);
+}
+
+.pink-bg {
+  background-color: var(--magenta);
+}
+
+.lavender-bg {
+  background-color: var(--lavender-bg);
+}
+
+.blue-bg {
+  background-color: var(--blue-bg);
+}
+
+.two-by {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.three-by {
+  display: flex;
+  gap: 2rem;
+}
+
+.four-by {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.text-smaller {
+  font-size: 75%
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+   }
+
+   80% {
+    transform: scale(1.1);
+   }
+
+   100% {
+   transform: scale(1);
+   }
+}
+
+.resize {
+  resize: both;
+  overflow: auto;
+}
+
+.resize-x {
+  resize: horizontal;
+  overflow: auto;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

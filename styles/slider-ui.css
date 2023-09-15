@@ -1,0 +1,59 @@
+:root {
+  --aspect-ratio: 16 / 9;
+  --slide-width: 1400px;
+}
+
+.twitter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: white;
+}
+
+.title {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: white;
+}
+
+/* Main slider thing */
+.slides {
+  display: flex;
+  overflow-x: scroll;
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.slide {
+  display: flex;
+  flex-shrink: 0;
+  width: var(--slide-width);
+  aspect-ratio: var(--aspect-ratio);
+  background: rgb(34, 33, 36);
+  color: white;
+  transform-origin: center center;
+  scroll-snap-align: center;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.slide-container {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+.slider {
+  width: var(--slide-width);
+  aspect-ratio: var(--aspect-ratio);
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}

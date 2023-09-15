@@ -1,0 +1,131 @@
+.responsive-grid .box {
+  font-size: 2rem;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+}
+
+.responsive-grid {
+  border: 4px dashed var(--blue);
+  padding: 1rem;
+}
+
+.pink {
+  background: var(--magenta);
+}
+
+.blue {
+  background: var(--blue-bg);
+}
+
+.purple {
+  background: var(--lavender-bg);
+}
+
+.green {
+  background: var(--green-bg);
+}
+
+.tooltip-demo {
+  border: 1px solid;
+  width: 500px;
+}
+
+.tooltip-demo button {
+  background: #ddd;
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-family: monospace;
+  border-radius: 1.75rem;
+  height: 1.75rem;
+  width: 1.75rem;
+  display: grid;
+  place-content: center;
+  border: 2px solid black;
+}
+
+.tooltip-demo .tooltip {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  background: #333;
+  color: white;
+  font-weight: 400;
+  padding: 1rem;
+  width: 300px;
+  line-height: 1.5;
+}
+
+.tooltip-demo {
+  display: grid;
+  grid-template-rows: 90% 1fr;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  height: 90%;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.non-popover {
+  position: absolute;
+  position-fallback: --top-then-bottom;
+  translate: -50% 0;
+}
+
+.qq-demo {
+  font-size: 1.2rem;
+}
+
+.qq-demo ul {
+  list-style: none;
+  border: 1px solid #9e8fdd;
+  background-color: #f0edff;
+  padding: 2rem;
+  width: 500px;
+  margin: 0 auto 4rem;
+}
+
+.login-form-container {
+  text-align: left;
+  max-width: 400px;
+  background: aliceblue;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.login-form label {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: -0.5rem;
+}
+
+.login-form input {
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.login-form button {
+  width: 100%;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  background: midnightblue;
+  color: white;
+  border: none;
+}
+
+.error-msg {
+  font-size: 1.5rem;
+  color: firebrick;
+  margin-top: 0.5rem;
+}
+
+.callout-link {
+  text-decoration: underline;
+  font-size: 4.5rem;
+}

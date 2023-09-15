@@ -1,0 +1,16 @@
+.codepen-link-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.codepen-link-qr {
+  display: none;
+  width: 300px;
+  border: 4px solid var(--blue-bg);
+  margin: 1rem 0;
+} 
+
+.codepen-link-checkbox:has(:checked) + img {
+  display: block;
+}

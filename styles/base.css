@@ -1,0 +1,118 @@
+:root {
+  --red: rgb(180, 27, 0);
+  --magenta: #ff46ec;
+  --lavender-bg: #ad28ff;
+  --blue-bg: #0680a5;
+  --green-bg: #02830a;
+  --lime: #caff00;
+  --tomato: rgb(252, 149, 131);
+  --lavender: #e1c1ff;
+  --blue: rgb(135, 193, 212);
+  --code-bg: #313538;
+  --code-border: #4f5e63;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  background-image: url('../img/photo-1599739291127-15c456e459ee.avif');
+  background-size: cover;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  font-size: 36px;
+}
+
+pre {
+  text-align: left;
+  padding: 0 1rem;
+}
+
+::selection {
+  background-color: var(--magenta);
+  color: white;
+}
+
+h1,
+blockquote {
+  font-family: 'Londrina Solid';
+  max-width: 20ch;
+  font-size: 8rem;
+  line-height: 1.1;
+  color: var(--lime);
+  text-shadow: 0 0 15px blueviolet;
+}
+
+h1:hover {
+  animation: pulse 2s ease infinite forwards;
+}
+
+blockquote {
+  margin: 0;
+  font-size: 7rem;
+}
+
+code,
+kbd {
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+  background: var(--code-bg);
+  border-radius: 0.3em;
+  border: 2px solid var(--code-border);
+}
+
+h2 {
+  font-weight: 400;
+  margin: 2rem 0;
+  font-family: 'Londrina Solid';
+}
+
+h2 code {
+  background: var(--magenta);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input[type=checkbox] {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+label:has([type=checkbox]) {
+  display: block;
+  transition-duration: 0.5s;
+  margin: 0;
+  padding: 0;
+  outline: 1px solid var(--lavender-bg);
+  border: none;
+  box-shadow: none;
+  width: 40px;
+  height: 40px;
+  accent-color: var(--lavender-bg);
+}
+
+label:has([type=checkbox]:checked) {
+  background-color: var(--blue-bg);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+li.indented {
+  font-size: 75%;
+  margin-left: 3rem;
+}
