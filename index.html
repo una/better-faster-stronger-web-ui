@@ -78,7 +78,7 @@
                       <p>May 2023</p>
                     </li>
                     <li>
-                      <img src="img/webkit_256x256.png" alt="Webkit">
+                      <img src="img/safari_256x256.png" alt="Webkit">
                       <p>September 2023</p>
                     </li>
                     <li>
@@ -86,6 +86,35 @@
                       <p>Behind flag</p>
                     </li>
                 </ul>
+              </div>
+
+              <div class="slide center">
+                <h2>HTML</h2>
+                <code>
+                  <pre>&lt;!-- Button -->
+&lt;button popovertarget="my-popover">
+  Open Me
+&lt;/button>
+
+&lt;!-- Popover -->
+&lt;div id="my-popover" popover>
+  ... Popover Stuff ...
+&lt;/div></pre>
+                </code>
+              </div>
+              
+              <div class="slide">
+                <div class="two-by">
+                  <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>&lt;button popovertarget="my-popover">                  
+  Open Popover 
+&lt;/button>
+
+&lt;div id="my-popover" popover>
+  &lt;p>I am a popover with more information.&lt;p>
+&lt;/div></pre></code>
+                </div>
+                
+                <iframe src="https://codepen.io/una/debug/OJrjamW" frameborder="0"></iframe>
               </div>
 
               <div class="slide">
@@ -105,21 +134,19 @@
 &lt;/div></pre></code>
                 </div>
                 
-                <iframe src="https://codepen.io/web-dot-dev/debug/mdzpGwq" frameborder="0"></iframe>
+                <iframe src="https://codepen.io/una/debug/WNLEYEX" frameborder="0"></iframe>
               </div>
 
               <!-- TODO DIFFERENT DEMO HERE -- BUYING ALBUMS -->
-                <div class="slide">
-                  <p class="highlight">TODO, DIFFERENT DEMO HERE -- BUYING ALBUMS</p>
-                  <iframe src="https://codepen.io/una/debug/wvYEEWL" frameborder="0"></iframe>
-                </div>
 
                 <div id="popover-intro" class="slide center top code-concept-intro">
+                  <a href="#animating-popovers" accesskey="2"></a>
                   <h2>Animating popovers</h2>
                   <ul class="three-by" style="font-size: 40px">
                     <li><code class="pink-bg">:popover-open</code></li>
                     <li><code class="lavender-bg">@starting-style</code></li>
-                    <li><code class="blue-bg">overlay</code></li>
+                    <li><code class="blue-bg">allow-discrete</code></li>
+                    <li><code class="pink-bg">overlay</code></li>
                 </ul>
                   <ul class="fade-in-on-hover browser-support" tabindex="0">
                     <li>
@@ -127,7 +154,7 @@
                       <p>August 2023</p>
                     </li>
                     <li>
-                      <img src="img/webkit_256x256.png" alt="Webkit">
+                      <img src="img/safari_256x256.png" alt="Webkit">
                       <p>⏳</p>
                     </li>
                     <li>
@@ -138,7 +165,7 @@
               </div>
 
                 <div class="slide">
-                  <iframe class="mini-phone" src="https://codepen.io/una/debug/rNqmOdm" frameborder="0"></iframe>
+                  <iframe style="background-color: white;" class="mini-phone" src="https://codepen.io/una/debug/rNqmOdm" frameborder="0"></iframe>
                 </div>
                 
                 <div class="slide">
@@ -160,20 +187,67 @@
 transform: translateY(-50px);
 opacity: 0;
 
-/*  List transitioning properties (w/ display) */
+/*  List transitioning properties (w/ allow-discrete) */
 transition: transform 0.5s, 
             opacity 0.5s, 
-            display 0.5s;
+            display 0.5s allow-discrete;
 }
                     </pre></code>
-                  <iframe class="mini-phone" src="https://codepen.io/una/debug/rNqmOdm" frameborder="0"></iframe>
+                  <iframe style="background: white" class="mini-phone" src="https://codepen.io/una/debug/rNqmOdm" frameborder="0"></iframe>
+                  </div>
+                </div>
+
+                <!-- Beyond popover: animating to and from display:none with allow-discrete -->
+
+                <div class="slide">
+                  <iframe style="background: white" class="mini-phone" src="https://codepen.io/una/debug/dygaZOL" frameborder="0"></iframe>
+                </div> 
+
+                <div class="slide">
+                  <div class="two-by">
+                    <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>// JavaScript
+
+deleteListItem() {
+  const listItem = this.parentNode;
+  
+  listItem.classList.add('is-deleting');
+  setTimeout(() => {
+    listItem.parentNode.removeChild(listItem);
+  }, 500);
+}      </pre></code>
+                  <iframe style="background: white" class="mini-phone" src="https://codepen.io/una/debug/dygaZOL" frameborder="0"></iframe>
                   </div>
                 </div>
 
                 <div class="slide">
-                  <iframe class="mini-phone" src="https://codepen.io/una/debug/dygaZOL" frameborder="0"></iframe>
-                </div>              
+                  <div class="two-by">
+                    <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>/* CSS */
+                      
+.item {
+  opacity: 1;
+  transform-origin: bottom;
+  transition: opacity 0.5s, 
+              transform 0.5s, 
+              display 0.5s allow-discrete;
+}
 
+@starting-style {
+  .item {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+/* while deleting, before DOM removal in JS */
+.is-deleting {
+  opacity: 0;
+  display: none;
+  transform: skewX(50deg) translateX(-25vw);
+}
+                    </pre></code>
+                  <iframe style="background: white" class="mini-phone" src="https://codepen.io/una/debug/dygaZOL" frameborder="0"></iframe>
+                  </div>
+                </div>
 
 
 
@@ -246,34 +320,7 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                   </div>
               </div>
 
-              <div class="slide center">
-                <h2>HTML</h2>
-                <code>
-                  <pre>&lt;!-- Button -->
-&lt;button popovertarget="my-popover">
-Open Me
-&lt;/button>
-
-&lt;!-- Popover -->
-&lt;div id="my-popover" popover>
-Popover Stuff
-&lt;/div></pre>
-                </code>
-              </div>
               
-              <div class="slide">
-                <div class="two-by">
-                  <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>&lt;button popovertarget="my-popover">                  
-  Open Popover 
-&lt;/button>
-
-&lt;div id="my-popover" popover>
-  &lt;p>I am a popover with more information.&lt;p>
-&lt;/div></pre></code>
-                </div>
-                
-                <iframe src="https://codepen.io/web-dot-dev/debug/poxQPWP" frameborder="0"></iframe>
-              </div>
 
               
 
@@ -300,7 +347,7 @@ Popover Stuff
                       <p>Soon  ⚠️</p>
                     </li>
                     <li>
-                      <img src="img/webkit_256x256.png" alt="Webkit">
+                      <img src="img/safari_256x256.png" alt="Webkit">
                       <p>❌</p>
                     </li>
                     <li>
@@ -401,37 +448,216 @@ Popover Stuff
                 </div>
               </div>
 
-              <div class="slide">
-                <div class="two-by">
-                  <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>&lt;!-- Selectmenu -->
+              <!-- Selectlist -->
 
-&lt;selectmenu>
-  &lt;button slot="button" behavior="button">
-    &lt;label>Select a color&lt;/label>
-    &lt;span slot="selected-value" 
-      behavior="selected-value" 
-      class="selected-val">&lt;/span>
-  &lt;/button>
-  &lt;option value="Red">
-    &lt;figure class="red">&lt;/figure>
-    Red
-  &lt;/option>
-  &lt;option value="Orange">
-    &lt;figure class="orange">&lt;/figure>
-    Orange
-  &lt;/option>
-  &lt;option value="Yellow">
-    &lt;figure class="yellow">&lt;/figure>
-    Yellow
-  &lt;/option>
-  ...
-&lt;/selectmenu></pre></code>
-                </div>
-                
-                <iframe src="https://codepen.io/una/debug/gOdJWNL" frameborder="0"></iframe>
+              <div class="slide center top code-concept-intro">
+                <a class="link-only" href="#selectlist" accesskey=3></a>
+                <h2><code>selectlist</code> component</h2>
+                    <p class="brief">Style a dropdown list with selectable options that can contain arbitrary content.</p>
+                    <ul class="fade-in-on-hover browser-support" tabindex="0">
+                      <li>
+                        <img src="img/chromium_256x256.png" alt="Chromium">
+                        <p>Canary</p>
+                      </li>
+                      <li>
+                        <img src="img/safari_256x256.png" alt="Webkit">
+                        <p>❌</p>
+                      </li>
+                      <li>
+                        <img src="img/firefox_256x256.png" alt="Firefox">
+                        <p>❌</p>
+                      </li>
+                  </ul>
               </div>
 
-                <!-- 05. Style Queries -->
+              <div class="slide center">
+                <iframe src="https://codepen.io/una/debug/KKbNYbo/e566c34f6484e3502def7f22066195f3" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <div class="selectlist-demo resize">
+                  <selectlist>
+                    <button type="selectlist">
+                      <span class="label">Where</span>
+                      <selectedoption></selectedoption>
+                    </button>
+                    <listbox>
+                      <p class="header">Search by region</p>
+                      <div class="option-container">
+                        <option value="" hidden>
+                          <span>Search destinations</span>
+                        </option>
+                        <option value="anywhere">
+                          <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" alt="">
+                          <span class="text">I'm flexible</span>
+                        </option>
+                        <option value="europe">
+                          <img src="https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg?im_w=320" alt="">
+                          <span class="text">Europe</span>
+                        </option>
+                        <option value="italy">
+                          <img src="https://a0.muscache.com/im/pictures/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.jpg?im_w=320" alt="">
+                          <span class="text">Italy</span>
+                        </option>
+                        <option value="caribbean">
+                          <img src="https://a0.muscache.com/im/pictures/c61d10f5-4ab3-4d16-bed7-0449e15c8277.jpg?im_w=320" alt="">
+                          <span class="text">Caribbean</span>
+                        </option>
+                        <option value="canada">
+                          <img src="https://a0.muscache.com/im/pictures/cd9f2bf0-eefc-4980-b7cb-9c8ca3dae883.jpg?im_w=320" alt="">
+                          <span class="text">Canada</span>
+                        </option>
+                        <option value="south-america">
+                          <img src="https://a0.muscache.com/im/pictures/06a30699-aead-492e-ad08-33ec0b383399.jpg?im_w=320" alt="">
+                          <span class="text">South America</span>
+                        </option>
+                      </div>
+                    </listbox>
+                  </selectlist>
+                </div>
+              </div>
+
+              <div class="slide center">
+                <div class="buncha-selectlists">
+                  <iframe src="https://codepen.io/una/debug/dywRxZJ" width="300" height="300" frameborder="0"></iframe>
+                  <iframe src="https://codepen.io/una/debug/vYvyMPL" frameborder="0"></iframe>
+                  <iframe src="https://codepen.io/una/debug/NWebmZw" frameborder="0"></iframe>
+                </div>
+                
+              </div>
+
+              <div class="slide">
+                <div class="two-by">
+                  <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>
+
+&lt;selectlist class="country-select"&gt;
+  &lt;button type=selectlist&gt;
+    &lt;selectedoption&gt;&lt;/selectedoption&gt;
+  &lt;/button&gt;
+  &lt;listbox&gt;
+    &lt;option value="" hidden&gt;
+      &lt;p&gt;Select a country&lt;/p&gt;
+    &lt;/option&gt;
+    &lt;option value="andorra"&gt;
+      &lt;img src="../Andorra.svg" /&gt;
+      &lt;p&gt;Andorra&lt;/p&gt;
+    &lt;/option&gt;
+    &lt;option value="bolivia"&gt;
+      &lt;img src="../Bolivia.svg.png" /&gt;
+      &lt;p&gt;Bolivia&lt;/p&gt;
+    &lt;/option&gt;
+    ...
+  &lt;/listbox&gt;
+&lt;/selectlist&gt;
+  </pre></code>
+                </div>
+                
+                <iframe src="https://codepen.io/una/debug/NWebmZw" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
+                <a class="link-only" href="#popover" accesskey=5></a>
+                <h1><span>Faster</span> <span style="color: var(--lavender)">interactions</span></h1>
+              </div>
+
+              <div class="slide top center code-concept-intro">
+                <a class="link-only" href="#scroll-animations" accesskey=9></a>
+                  
+                  <h2>Scroll-driven animations</h2>
+                  <ul class="three-by">
+                      <li><code class="pink-bg">view-timeline</code></li>
+                      <li><code class="lavender-bg">animation-timeline</code></li>
+                      <li><code class="blue-bg">view()</code></li>
+                  </ul>
+                  <ul class="fade-in-on-hover browser-support" tabindex="0">
+                    <li>
+                        <img src="img/chromium_256x256.png" alt="Chromium">
+                        <p>Soon ⚠️</p>
+                    </li>
+                    <li>
+                      <img src="img/safari_256x256.png" alt="Webkit">
+                      <p>❌</p>
+                    </li>
+                    <li>
+                        <img src="img/firefox_256x256.png" alt="Firefox">
+                        <p>❌</p>
+                    </li>
+                </ul>
+              </div>
+
+              <div class="slide">
+                <iframe src="https://codepen.io/una/debug/BaqNqzd" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <div class="two-by">
+<code style="font-size: 1.5rem"><pre>
+@keyframes fly-in {
+0% {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+50% {
+    opacity: 1;
+    transform: translateX(0px);
+}
+}
+
+blockquote {
+animation: fly-in auto linear;
+animation-timeline: view();
+}
+</pre></code>
+              <div>
+                <iframe src="https://codepen.io/una/debug/BaqNqzd" frameborder="0" style="border: 1px solid; padding: 1rem;"></iframe>
+              </div>
+            </div>
+              </div>
+
+              <div class="slide center">
+                <iframe src="https://scroll-driven-animations.style/" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <iframe src="https://scroll-driven-animations.style/demos/cover-flow/css/" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <iframe src="https://scroll-driven-animations.style/demos/stacking-cards/css/" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <iframe src="https://scroll-driven-animations.style/demos/reverse-scroll/css/" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <h2 class="callout-link">scroll-driven-animations.style</h2>
+              </div>
+
+              <div class="slide">
+                Bramus' SDA demo
+              </div>
+
+              <div class="slide">
+                SDA, performance benefits
+              </div>
+
+              <div class="side">
+                <iframe src="https://developer.chrome.com/blog/scroll-animation-performance-case-study/" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide">
+                example from animating to and from display:none (playlist up-next demo), then show that with VT
+              </div>
+
+              <div class="slide">
+                VIEW TRANSITIONS
+              </div>
+
+              <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
+                <a class="link-only" href="#popover" accesskey=6></a>
+                <h1><span>Stronger</span> <span style="color: var(--lavender)">resilient components</span></h1>
+              </div>
 
                 <div id="has-1" class="slide center top code-concept-intro">
                     <a class="link-only" href="#has-1" accesskey=5></a>
@@ -443,12 +669,12 @@ Popover Stuff
                         <p>Aug 2022</p>
                       </li>
                       <li>
-                        <img src="img/webkit_256x256.png" alt="Webkit">
+                        <img src="img/safari_256x256.png" alt="Webkit">
                         <p>Mar 2022</p>
                       </li>
                       <li>
                         <img src="img/firefox_256x256.png" alt="Firefox">
-                        <p>🏁</p>
+                        <p>Nightly</p>
                       </li>
                   </ul>
                 </div>
@@ -484,12 +710,12 @@ Popover Stuff
                 </div>
                 <div  style="resize: both;
                 overflow: auto; width: 1200px; height: 700px; border: 2px solid">
-                  <iframe src="https://cdpn.io/pen/debug/BaOXaxd" frameborder="0"></iframe>
+                  <iframe style="background: white" src="https://cdpn.io/pen/debug/BaOXaxd" frameborder="0"></iframe>
                 </div>
                 <!-- note: add another div -->
               </div>
 
-              <div id="has-3" class="slide center top">
+              <div id="has-3" class="slide center">
                     <h2>Quantity Queries</h2>
                     <p>Style based on the number of children</p>
                     <code>:has(:nth-child(n + x))</code>
@@ -629,7 +855,7 @@ Popover Stuff
                           <p>Aug 2022</p>
                       </li>
                       <li>
-                        <img src="img/webkit_256x256.png" alt="Webkit">
+                        <img src="img/safari_256x256.png" alt="Webkit">
                         <p>Sept 2022</p>
                       </li>
                       <li>
@@ -652,7 +878,7 @@ Popover Stuff
                   </div>
                   <div  style="resize: both;
                   overflow: auto; width: 900px; height: 600px; border: 2px solid">
-                    <iframe src="https://cdpn.io/pen/debug/WNgmxom" frameborder="0"></iframe>
+                    <iframe style="background: white" src="https://cdpn.io/pen/debug/WNgmxom" frameborder="0"></iframe>
                   </div>
                 </div>
 
@@ -660,7 +886,7 @@ Popover Stuff
                   <h2>Micro-UI</h2>
                   <div  style="resize: both;
                   overflow: auto; width: 1000px; height: 600px; border: 2px solid">
-                    <iframe src="https://codepen.io/web-dot-dev/debug/qBJJQQa" frameborder="0"></iframe>
+                    <iframe style="background: white" src="https://codepen.io/web-dot-dev/debug/qBJJQQa" frameborder="0"></iframe>
                   </div>
                 </div>
 
@@ -695,7 +921,7 @@ Popover Stuff
   font-size: clamp(3rem, 8cqi, 5rem);
 }</style>
                   <div class="fluid-cq-container resize">
-                    <h2 class="fluid-cq">Powerpuff Girls Rule</h2>
+                    <h2 class="fluid-cq">Fluid Typography</h2>
                   </div>
                 </div>
 
@@ -715,7 +941,7 @@ Popover Stuff
                           <p>Mar 2023 ⚠️</p>
                       </li>
                       <li>
-                        <img src="img/webkit_256x256.png" alt="Webkit">
+                        <img src="img/safari_256x256.png" alt="Webkit">
                         <p>❌</p>
                       </li>
                       <li>
@@ -766,12 +992,12 @@ Popover Stuff
                           <p>Aug 2020</p>
                       </li>
                       <li>
-                        <img src="img/webkit_256x256.png" alt="Webkit">
+                        <img src="img/safari_256x256.png" alt="Webkit">
                         <p>Mar 2023</p>
                       </li>
                       <li>
                           <img src="img/firefox_256x256.png" alt="Firefox">
-                          <p>❌</p>
+                          <p>Nightly</p>
                       </li>
                   </ul>
                 </div>
@@ -827,80 +1053,6 @@ Popover Stuff
 }</pre></code>
                   <iframe src="https://codepen.io/una/debug/WNavaNX/7fb5dc84799f15077b562a18f6a944db" frameborder="0"></iframe>
                   </div>
-                </div>
-
-                <div id="cq-1" class="slide top center code-concept-intro">
-                  <a class="link-only" href="#scroll-animations" accesskey=9></a>
-                    
-                    <h2>Scroll-driven animations</h2>
-                    <ul class="three-by">
-                        <li><code class="pink-bg">view-timeline</code></li>
-                        <li><code class="lavender-bg">animation-timeline</code></li>
-                        <li><code class="blue-bg">view()</code></li>
-                    </ul>
-                    <ul class="fade-in-on-hover browser-support" tabindex="0">
-                      <li>
-                          <img src="img/chromium_256x256.png" alt="Chromium">
-                          <p>Soon ⚠️</p>
-                      </li>
-                      <li>
-                        <img src="img/webkit_256x256.png" alt="Webkit">
-                        <p>❌</p>
-                      </li>
-                      <li>
-                          <img src="img/firefox_256x256.png" alt="Firefox">
-                          <p>❌</p>
-                      </li>
-                  </ul>
-                </div>
-
-                <div class="slide">
-                  <iframe src="https://codepen.io/una/debug/BaqNqzd" frameborder="0"></iframe>
-                </div>
-
-                <div class="slide center">
-                  <div class="two-by">
-<code style="font-size: 1.5rem"><pre>
-@keyframes fly-in {
-  0% {
-      opacity: 0;
-      transform: translateX(-100px);
-  }
-  50% {
-      opacity: 1;
-      transform: translateX(0px);
-  }
-}
-
-blockquote {
-  animation: fly-in auto linear;
-  animation-timeline: view();
-}
-</pre></code>
-                <div>
-                  <iframe src="https://codepen.io/una/debug/BaqNqzd" frameborder="0" style="border: 1px solid; padding: 1rem;"></iframe>
-                </div>
-              </div>
-                </div>
-
-                <div class="slide center">
-                  <iframe src="https://scroll-driven-animations.style/" frameborder="0"></iframe>
-                </div>
-
-                <div class="slide center">
-                  <iframe src="https://scroll-driven-animations.style/demos/cover-flow/css/" frameborder="0"></iframe>
-                </div>
-
-                <div class="slide center">
-                  <iframe src="https://scroll-driven-animations.style/demos/stacking-cards/css/" frameborder="0"></iframe>
-                </div>
-
-                <div class="slide center">
-                  <iframe src="https://scroll-driven-animations.style/demos/reverse-scroll/css/" frameborder="0"></iframe>
-                </div>
-
-                <div class="slide center">
-                  <h2 class="callout-link">scroll-driven-animations.style</h2>
                 </div>
 
                 <div class="slide center">
@@ -971,7 +1123,6 @@ blockquote {
                   <li>Twitter: <span>@una</span></li>
                   <li>Website: <span>una.im</span></li>
                   <li>Mastodon: <span>front-end.social/@una</span></li>
-                  <li>BlueSky: <span>una.im</span></li>
                 </ul>
               </div>
             </div>

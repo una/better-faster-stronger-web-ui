@@ -29,7 +29,7 @@
 .slide {
   display: flex;
   flex-shrink: 0;
-  width: var(--slide-width);
+  width: calc(var(--slide-width) - 1rem);
   aspect-ratio: var(--aspect-ratio);
   background: rgb(34, 33, 36);
   color: white;

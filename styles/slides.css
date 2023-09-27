@@ -67,7 +67,7 @@
 .display {
   display: block;
   font-family: 'IBM Plex Mono', monospace;
-  background: var(--lavender-bg);
+  background: var(--code-bg);
   padding: 2rem;
   border-radius: 1rem;
   font-size: 1.8rem;
@@ -241,4 +241,8 @@ figure {
 .highlight {
   background: yellow;
   color: black;
+}
+
+.buncha-selectlists iframe {
+  position: absolute;
 }

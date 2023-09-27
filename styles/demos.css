@@ -75,12 +75,15 @@
 
 .qq-demo {
   font-size: 1.2rem;
+  display: grid;
+  place-content: center;
 }
 
 .qq-demo ul {
+  color: black;
   list-style: none;
-  border: 1px solid #9e8fdd;
-  background-color: #f0edff;
+  border: 1px solid var(--code-border);
+  background-color: var(--lavender);
   padding: 2rem;
   width: 500px;
   margin: 0 auto 4rem;
@@ -89,7 +92,8 @@
 .login-form-container {
   text-align: left;
   max-width: 400px;
-  background: aliceblue;
+  background: var(--blue);
+  color: black;
   padding: 1rem;
   margin: 0 auto;
 }
@@ -128,4 +132,116 @@
 .callout-link {
   text-decoration: underline;
   font-size: 4.5rem;
+}
+
+/* selectlist */
+
+.selectlist-demo {
+  width: 600px;
+  height: 600px;
+  border: 1px solid lightgray;
+  container-type: inline-size;
+  display: -webkit-box;
+}
+
+.selectlist-demo .option-container {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.selectlist-demo listbox {
+  padding: 1rem;
+  border-radius: 2rem;
+  border-width: 0;
+  margin-top: 0.5rem;
+  width: 100cqi;
+  max-width: 500px;
+}
+
+.selectlist-demo selectedoption {
+  & img {
+    display: none;
+  }
+}
+
+.selectlist-demo option {
+  display: grid;
+
+  &:hover {
+    background: none;
+
+    & img {
+      border-color: dimgray;
+      cursor: pointer;
+    }
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.selectlist-demo img {
+  width: 100%;
+  max-width: 120px;
+  border-radius: 1rem;
+  border: 1px solid lightgray;
+  margin-bottom: 0.25rem;
+  object-fit: cover;
+}
+
+.selectlist-demo .header {
+  font-weight: 700;
+  display: inline-block;
+  width: 100%;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Button */
+.selectlist-demo button {
+  text-align: left;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  width: 300px;
+  background: #eee;
+  border-width: 0;
+  transition-duration: 0.25s;
+  background-color: white;
+
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.selectlist-demo selectlist:has(:popover-open) {
+  & button {
+    background-color: white;
+    box-shadow: 0 0 20px lightgray;
+  }
+}
+
+.selectlist-demo .label {
+  font-weight: 700;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.selectlist-demo span {
+  font-size: 0.9rem;
+}
+
+
+@container (width <= 500px) {
+  .selectlist-demo .option-container {
+    width: 100cqi;
+    grid-template-rows: 1fr;
+    grid-auto-flow: column;
+  }
+  
+  .selectlist-demo option {
+    width: 120px;
+  }
 }
