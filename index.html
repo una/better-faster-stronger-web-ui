@@ -61,12 +61,11 @@
                   <h1><span>Better</span> <span style="color: var(--lavender)">UI capabilities</span></h1>
                 </div>
 
-                <div class="slide center">
-                  images of popovers (like popups popping up)
+                <div class="slide center" style="background-image: url(./img/pop-ups.webp);">
                 </div>
 
                 <div class="slide center">
-                  images of popovers (like ones we see everywhere)
+                  <img src="./img/popovers.jpg" alt="">
                 </div>
 
                 <div id="popover-intro" class="slide center top code-concept-intro">
@@ -187,7 +186,7 @@
 transform: translateY(-50px);
 opacity: 0;
 
-/*  List transitioning properties (w/ allow-discrete) */
+/*  Transitioning properties + allow-discrete */
 transition: transform 0.5s, 
             opacity 0.5s, 
             display 0.5s allow-discrete;
@@ -249,11 +248,9 @@ deleteListItem() {
                   </div>
                 </div>
 
-
-
-
-
-
+                <div class="slide">
+                  ADD DEMO DELETING CARDS
+                </div>
 
 
 
@@ -263,76 +260,6 @@ deleteListItem() {
 
 
                 <!-- 04. Popover & Anchor -->
-
-                <div class="slide center">
-                  <iframe style="height: 80%" src="https://codepen.io/web-dot-dev/debug/XWxPBdr" frameborder="0"></iframe>
-                  <p style="padding: 0">Popover + Anchor positioning</p>
-                </div>
-
-
-                
-
-              <!-- 03. Trig Functions -->
-
-              <div class="slide">
-                <div class="codepen-link-container">
-                  <label class="codepen-link-checkbox">
-                    <input type="checkbox" name="codepen-link" />
-                  </label>
-                  <img src="img/qr-trig.png" alt="" class="codepen-link-qr">
-                </div>
-                <iframe src="https://codepen.io/una/debug/VwGRpXN" frameborder="0"></iframe>
-              </div>
-
-              <div class="slide center">
-                <figure>
-                  <img src="img/radial-diagram.png" alt="">
-                </figure>
-              </div>
-
-                <div class="slide center" style="padding-top: 2rem; justify-content: start;">
-                  <code style="text-align: left;
-                  font-size: 30px;"><pre>.item {
---radius: calc(var(--btn-size) + var(--extra-space));
-background-color: var(--bg);
-transform: translateX(calc(cos(var(--angle)) * var(--radius)))
-           translateY(calc(sin(var(--angle) * -1) * var(--radius)));
-transition: transform 0.3s var(--delay) ease;
-}</pre></code><figure>
-<img style="height: 450px;
-margin-top: -2.5rem;
-margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
-</figure>
-                </div>
-
-                <div class="slide">
-                  <div class="codepen-link-container">
-                    <label class="codepen-link-checkbox">
-                      <input type="checkbox" name="codepen-link" />
-                    </label>
-                    <img src="img/qr-trig.png" alt="" class="codepen-link-qr">
-                  </div>
-                  <div class="two-by" style="align-items: center; grid-template-columns: 1fr 2fr;">
-                    <iframe src="https://codepen.io/una/debug/VwGRpXN" frameborder="0"></iframe>
-                    <figure>
-                      <img src="img/radial-diagram.png" alt="">
-                    </figure>
-                  </div>
-              </div>
-
-              
-
-              
-
-                <!-- <div class="slide">
-                  <iframe style="border: 2px solid var(--lavender); height: 90%; margin-top: 2.5%" src="https://codepen.io/web-dot-dev/debug/jOeKzpb" frameborder="0"></iframe>
-                </div> -->
-
-                <div class="slide center">
-                  <iframe style="height: 80%" src="https://codepen.io/web-dot-dev/debug/XWxPBdr" frameborder="0"></iframe>
-                  <p style="padding: 0">Popover + Anchor positioning</p>
-                </div>
-
 
                 <div id="popover-intro" class="slide center top code-concept-intro">
                   <h2><code>anchor</code> positioning</h2>
@@ -373,7 +300,7 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
               </div> 
 
               <div class="slide">
-                <iframe class="mini-phone" style="width: 600px" src="https://codepen.io/una/debug/vYVLVVG" frameborder="1"></iframe>
+                <iframe class="mini-phone" style="width: 600px; background: white;" src="https://codepen.io/una/debug/vYVLVVG" frameborder="1"></iframe>
               </div>
 
               <div class="slide center">
@@ -388,7 +315,7 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
 
               <div class="slide">
                 <div class="two-by">
-                  <code style="font-size: 1.5rem; width: 650px;margin: 2rem 0;"><pre>[popover] {
+                  <code style="font-size: 1.5rem; width: 650px;margin: 2rem 0; background: white;"><pre>[popover] {
   bottom: calc(anchor(top) + 1rem);
   right: calc(anchor(right));
 }</pre></code>
@@ -447,6 +374,78 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                     </div>
                 </div>
               </div>
+
+              <div>
+                NEW anchor updates (tether, auto flip)
+              </div>
+
+              <div class="slide center">
+                <iframe style="height: 80%" src="https://codepen.io/web-dot-dev/debug/XWxPBdr" frameborder="0"></iframe>
+                <p style="padding: 0">Popover + Anchor positioning</p>
+              </div>
+
+
+                
+
+              <!-- 03. Trig Functions -->
+
+              <div class="slide">
+                <div class="codepen-link-container">
+                  <label class="codepen-link-checkbox">
+                    <input type="checkbox" name="codepen-link" />
+                  </label>
+                  <img src="img/qr-trig.png" alt="" class="codepen-link-qr">
+                </div>
+                <iframe src="https://codepen.io/una/debug/VwGRpXN" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <figure>
+                  <img src="img/radial-diagram.png" alt="">
+                </figure>
+              </div>
+
+                <div class="slide center" style="padding-top: 2rem; justify-content: start;">
+                  <code style="text-align: left;
+                  font-size: 30px;"><pre>.item {
+--radius: calc(var(--btn-size) + var(--extra-space));
+background-color: var(--bg);
+transform: translateX(calc(cos(var(--angle)) * var(--radius)))
+           translateY(calc(sin(var(--angle) * -1) * var(--radius)));
+transition: transform 0.3s var(--delay) ease;
+}</pre></code><figure>
+<img style="height: 450px;
+margin-top: -2.5rem;
+margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
+</figure>
+                </div>
+
+                <div class="slide">
+                  <div class="codepen-link-container">
+                    <label class="codepen-link-checkbox">
+                      <input type="checkbox" name="codepen-link" />
+                    </label>
+                    <img src="img/qr-trig.png" alt="" class="codepen-link-qr">
+                  </div>
+                  <div class="two-by" style="align-items: center; grid-template-columns: 1fr 2fr;">
+                    <iframe src="https://codepen.io/una/debug/VwGRpXN" frameborder="0"></iframe>
+                    <figure>
+                      <img src="img/radial-diagram.png" alt="">
+                    </figure>
+                  </div>
+              </div>
+
+              
+
+              
+
+                <!-- <div class="slide">
+                  <iframe style="border: 2px solid var(--code-border); var(--lavender); height: 90%; margin-top: 2.5%" src="https://codepen.io/web-dot-dev/debug/jOeKzpb" frameborder="0"></iframe>
+                </div> -->
+
+
+
+                
 
               <!-- Selectlist -->
 
@@ -586,6 +585,10 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
               </div>
 
               <div class="slide">
+                <iframe src="https://codepen.io/una/debug/YzRebYK/adb103797f45870183c78ac73056b6f2" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide">
                 <iframe src="https://codepen.io/una/debug/BaqNqzd" frameborder="0"></iframe>
               </div>
 
@@ -614,8 +617,8 @@ animation-timeline: view();
             </div>
               </div>
 
-              <div class="slide center">
-                <iframe src="https://scroll-driven-animations.style/" frameborder="0"></iframe>
+              <div class="slide">
+                <iframe src="https://codepen.io/bramus/debug/OJrxBaL/3069957ece86b0c8aafb4a249ff9271a" frameborder="0"></iframe>
               </div>
 
               <div class="slide center">
@@ -635,23 +638,35 @@ animation-timeline: view();
               </div>
 
               <div class="slide">
-                Bramus' SDA demo
+                <video src="./img/jEhFBLHvDb9W0VFFupYz.mp4" autoplay controls loop></video>
               </div>
 
               <div class="slide">
-                SDA, performance benefits
+                <img src="./img/v6rDNCu6XO8Nh5ujx0yw.avif" alt="">
               </div>
 
               <div class="side">
                 <iframe src="https://developer.chrome.com/blog/scroll-animation-performance-case-study/" frameborder="0"></iframe>
               </div>
 
+              <div class="slide center">
+                <h2>...speaking of animations...</h2>
+              </div>
+
+              <div class="slide center">
+                <h2>View Transitions!</h2>
+              </div>
+
               <div class="slide">
-                example from animating to and from display:none (playlist up-next demo), then show that with VT
+                example from animating to and from display:none, then show that with VT
               </div>
 
               <div class="slide">
                 VIEW TRANSITIONS
+              </div>
+
+              <div class="slide">
+                (playlist up-next demo)
               </div>
 
               <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
@@ -709,7 +724,7 @@ animation-timeline: view();
                   <img src="img/qr-has-nth.png" alt="" class="codepen-link-qr">
                 </div>
                 <div  style="resize: both;
-                overflow: auto; width: 1200px; height: 700px; border: 2px solid">
+                overflow: auto; width: 1200px; height: 700px; border: 2px solid var(--code-border);">
                   <iframe style="background: white" src="https://cdpn.io/pen/debug/BaOXaxd" frameborder="0"></iframe>
                 </div>
                 <!-- note: add another div -->
@@ -793,7 +808,7 @@ animation-timeline: view();
                     <img src="img/qr-has-nth.png" alt="" class="codepen-link-qr">
                   </div>
                   <div  style="resize: both;
-                  overflow: auto; width: 1200px; height: 700px; border: 2px solid">
+                  overflow: auto; width: 1200px; height: 700px; border: 2px solid var(--code-border);">
                     <iframe src="https://cdpn.io/pen/debug/BaOXaxd" frameborder="0"></iframe>
                   </div>
                 </div> -->
@@ -877,7 +892,7 @@ animation-timeline: view();
                     <img src="img/qr-container.png" alt="" class="codepen-link-qr">
                   </div>
                   <div  style="resize: both;
-                  overflow: auto; width: 900px; height: 600px; border: 2px solid">
+                  overflow: auto; width: 900px; height: 600px; border: 2px solid var(--code-border);">
                     <iframe style="background: white" src="https://cdpn.io/pen/debug/WNgmxom" frameborder="0"></iframe>
                   </div>
                 </div>
@@ -885,22 +900,22 @@ animation-timeline: view();
                 <div id="cq-4" class="slide center">
                   <h2>Micro-UI</h2>
                   <div  style="resize: both;
-                  overflow: auto; width: 1000px; height: 600px; border: 2px solid">
+                  overflow: auto; width: 1000px; height: 600px; border: 2px solid var(--code-border);">
                     <iframe style="background: white" src="https://codepen.io/web-dot-dev/debug/qBJJQQa" frameborder="0"></iframe>
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <div style="resize: both;
+                  overflow: auto; width: 1200px; height: 750px; border: 2px solid var(--code-border);">
+                    <iframe src="https://codepen.io/una/debug/ZEqmaRP" frameborder="0"></iframe>
                   </div>
                 </div>
 
                 <div id="cq-5" class="slide center">
                   <div style="resize: both;
-                  overflow: auto; width: 300px; height: 300px; border: 2px solid">
-                    <iframe src="https://codepen.io/una/debug/ExdObra" frameborder="0"></iframe>
-                  </div>
-                </div>
-
-                <div class="slide center">
-                  <div style="resize: both;
-                  overflow: auto; width: 1200px; height: 700px; border: 2px solid">
-                    <iframe style="height: 98%" src="https://codepen.io/una/debug/zYdJvvw" frameborder="0"></iframe> 
+                  overflow: auto; width: 300px; height: 300px; border: 2px solid var(--code-border);">
+                    <iframe src="https://codepen.io/una/debug/jOQqbvr" frameborder="0"></iframe>
                   </div>
                 </div>
 
@@ -908,7 +923,11 @@ animation-timeline: view();
                   More with CQ, no more needing to resize observe for size, custom props
                 </div> -->
 
-
+                <style>
+                  .fluid-cq-container {
+                    color: var(--lavender);
+                  }
+                </style>
 
                 <div id="clamp-6" class="slide top center">
                   <h2>Container query units</h2>
@@ -967,7 +986,7 @@ animation-timeline: view();
                     <code style="margin-bottom: 2rem">@container style(--sunny: true) and style(--cloudy: true) { .card { ... } }</code>
 
                     <div  style="resize: both;
-                    overflow: auto; width: 900px; height: 300px; border: 2px solid">
+                    overflow: auto; width: 900px; height: 300px; border: 2px solid var(--code-border);">
                       <iframe src="https://codepen.io/web-dot-dev/debug/KKxzYQx" frameborder="0"></iframe>
                     </div>
                 </div>
@@ -978,7 +997,7 @@ animation-timeline: view();
                   <code style="margin-bottom: 2rem">@container style(25% <= --rain <= 50%) { .card { ... } }</code>
 
                   <div style="resize: both;
-                  overflow: auto; width: 900px; height: 300px; border: 2px solid">
+                  overflow: auto; width: 900px; height: 300px; border: 2px solid var(--code-border);">
                     <iframe src="https://codepen.io/web-dot-dev/debug/KKxzYQx" frameborder="0"></iframe>
                   </div>
               </div>
@@ -1106,7 +1125,7 @@ animation-timeline: view();
             </div>
 
               <div id="slide-x" class="slide center">
-                <blockquote>Don't underestimate CSS and vanilla HTML components</blockquote>
+                <blockquote>Don't underestimate the power of the platform</blockquote>
               </div>
 
               <div class="slide center">
