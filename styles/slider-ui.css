@@ -24,12 +24,14 @@
   position: relative;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  /* hide scrollbar */
+  height: calc(100% + 0.9rem);
 }
 
 .slide {
   display: flex;
   flex-shrink: 0;
-  width: calc(var(--slide-width) - 1rem);
+  width: calc(var(--slide-width) - 0.9rem);
   aspect-ratio: var(--aspect-ratio);
   background: rgb(34, 33, 36);
   color: white;

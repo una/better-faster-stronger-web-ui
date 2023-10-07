@@ -219,8 +219,7 @@ figure {
   border: 2px solid var(--blue);
   width: 450px;
   margin: 0 auto;
-  height: calc(100% - 6rem);
-  margin-top: 2rem;
+  height: calc(100% - 4rem);
   border: 10px solid #454545;
   outline: 2px solid gray;
   border-radius: 40px;
@@ -236,7 +235,6 @@ figure {
   position: absolute;
   top: 1rem;
   left: 50%;
-
 }
 
 #intro-1 {

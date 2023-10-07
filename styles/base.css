@@ -65,6 +65,7 @@ kbd {
   background: var(--code-bg);
   border-radius: 0.3em;
   border: 2px solid var(--code-border);
+  font-size: 80%;
 }
 
 h2 {
