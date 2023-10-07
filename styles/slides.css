@@ -217,10 +217,26 @@ figure {
 
 .mini-phone {
   border: 2px solid var(--blue);
-  width: 500px;
+  width: 450px;
   margin: 0 auto;
-  height: calc(100% - 2rem);
-  margin-top: 1rem;
+  height: calc(100% - 6rem);
+  margin-top: 2rem;
+  border: 10px solid #454545;
+  outline: 2px solid gray;
+  border-radius: 40px;
+}
+
+.mini-phone::before {
+  content: '';
+  display: block;
+  width: 30%;
+  height: 3rem;
+  background: black;
+  border-radius: 30px;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+
 }
 
 #intro-1 {

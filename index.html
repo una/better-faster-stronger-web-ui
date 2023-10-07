@@ -18,25 +18,10 @@
                     <p class="intro fun-font">Una Kravets <span class="red">&hearts;</span> una.im <br> Google Chrome DevRel</p>
                 </div>
                 <div class="slide center">
-                  -- Music --
+                  -- MUSIC --
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/DpPueG9Fkxs?si=fNyvvm72gQx56vSg&amp;start=43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <!-- <div id="intro-2" class="slide center">
-                  <label class="list-play-checkbox">
-                    <input type="checkbox" name="list-play" />
-                  </label>
-                    <ul class="star-list" style="text-align: left;">
-                        <li>Logical Components</li>
-                          <li class="indented">CSS Math Functions (<code>minmax()</code>, <code>clamp()</code>, CSS trigonometry)</li>
-                          <li class="indented">Container queries (<code>@container</code>, <code>style()</code>)</li>
-                          <li class="indented">Advanced selectors (<code>:has()</code>, <code>:not()</code>)</li>
-                        <li>CSS-Driven Interactions</li>
-                          <li class="indented">Scroll-driven animations (<code>view-timeline</code>)</li>
-                          <li class="indented">New component primitives (<code>popover</code>, <code>anchor</code>)</li>
-                        <li>Native Architecture</li>
-                        <li class="indented">Typed CSS (<code>@property</code>)</li>
-                    </ul>
-                </div> -->
-
+                
                 <div class="slide center pre-intro">
                   <h2><b>Better</b> <span>UI capabilities</span></h2>
                   <h2><b>Faster</b> <span>performance benefits</span></h2>
@@ -141,7 +126,7 @@
                 <div id="popover-intro" class="slide center top code-concept-intro">
                   <a href="#animating-popovers" accesskey="2"></a>
                   <h2>Animating popovers</h2>
-                  <ul class="three-by" style="font-size: 40px">
+                  <ul class="three-by" style="font-size: 36px">
                     <li><code class="pink-bg">:popover-open</code></li>
                     <li><code class="lavender-bg">@starting-style</code></li>
                     <li><code class="blue-bg">allow-discrete</code></li>
@@ -262,6 +247,7 @@ deleteListItem() {
                 <!-- 04. Popover & Anchor -->
 
                 <div id="popover-intro" class="slide center top code-concept-intro">
+                  <a href="#animating-popovers" accesskey="3"></a>
                   <h2><code>anchor</code> positioning</h2>
                   <ul class="three-by" style="font-size: 40px">
                     <li><code class="pink-bg">anchor=""</code></li>
@@ -443,16 +429,26 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                   <iframe style="border: 2px solid var(--code-border); var(--lavender); height: 90%; margin-top: 2.5%" src="https://codepen.io/web-dot-dev/debug/jOeKzpb" frameborder="0"></iframe>
                 </div> -->
 
+              <!-- Transition popover to selectlist -->
 
+              <div class="slide center">
+                <h2><code>popover</code> has no default semantic role</h2>
+              </div>
 
+              <div class="slide center">
+                <ul>
+                  <li>Menu: <code>role="menu"</code></li>
+                  <li>Tooltip: <code>role="tooltip"</code></li>
+                  <li>Dialog: <code>dialog</code> element</li>
+                </ul>
+              </div>
                 
-
               <!-- Selectlist -->
 
               <div class="slide center top code-concept-intro">
-                <a class="link-only" href="#selectlist" accesskey=3></a>
+                <a class="link-only" href="#selectlist" accesskey=4></a>
                 <h2><code>selectlist</code> component</h2>
-                    <p class="brief">Style a dropdown list with selectable options that can contain arbitrary content.</p>
+                    <p class="brief">A semantic list of options you can select from and fully customize, via style and content.</p>
                     <ul class="fade-in-on-hover browser-support" tabindex="0">
                       <li>
                         <img src="img/chromium_256x256.png" alt="Chromium">
@@ -560,7 +556,6 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
               </div>
 
               <div class="slide top center code-concept-intro">
-                <a class="link-only" href="#scroll-animations" accesskey=9></a>
                   
                   <h2>Scroll-driven animations</h2>
                   <ul class="three-by">
@@ -655,6 +650,7 @@ animation-timeline: view();
 
               <div class="slide center">
                 <h2>View Transitions!</h2>
+                <a class="link-only" href="#popover" accesskey=6></a>
               </div>
 
               <div class="slide">
@@ -670,12 +666,11 @@ animation-timeline: view();
               </div>
 
               <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
-                <a class="link-only" href="#popover" accesskey=6></a>
+                <a class="link-only" href="#popover" accesskey=7></a>
                 <h1><span>Stronger</span> <span style="color: var(--lavender)">resilient components</span></h1>
               </div>
 
                 <div id="has-1" class="slide center top code-concept-intro">
-                    <a class="link-only" href="#has-1" accesskey=5></a>
                     <h2><code>:has()</code> relational selector</h2>
                     <p class="brief">Style parent elements (and more) based on the presence or state of child elements</p>
                     <ul class="fade-in-on-hover browser-support" tabindex="0">
@@ -853,10 +848,10 @@ animation-timeline: view();
 
                 
 
-                <!-- 06. Container Queries -->
+                <!-- 08. Container Queries -->
 
                 <div id="cq-1" class="slide top center code-concept-intro">
-                  <a class="link-only" href="#container-queries" accesskey=6></a>
+                  <a class="link-only" href="#container-queries" accesskey=8></a>
                     
                     <h2>Container Queries</h2>
                     <ul class="three-by" style="font-size: 40px">
@@ -919,7 +914,7 @@ animation-timeline: view();
                   </div>
                 </div>
 
-                <!-- <div id="cq-3" class="slide">
+                <!-- <div class="slide">
                   More with CQ, no more needing to resize observe for size, custom props
                 </div> -->
 
@@ -947,7 +942,7 @@ animation-timeline: view();
                 <!-- 07. Style Queries -->
                 
                 <div id="cq-1" class="slide top center code-concept-intro">
-                  <a class="link-only" href="#style-queries" accesskey=7></a>
+                  <a class="link-only" href="#style-queries" accesskey=9></a>
                     
                     <h2>Style Queries</h2>
                     <ul class="two-by">
@@ -1003,7 +998,7 @@ animation-timeline: view();
               </div>
 
                 <div id="property-1" class="slide center">
-                  <a class="link-only" href="#at-property" accesskey=8></a>
+                  <a class="link-only" href="#at-property" accesskey=0></a>
                   <h2>Made possible by... <code>@property</code></h2>
                     <ul class="fade-in-on-hover browser-support" tabindex="0">
                       <li>
@@ -1074,8 +1069,29 @@ animation-timeline: view();
                   </div>
                 </div>
 
+                <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
+                  <a class="link-only" href="#popover" accesskey="q"></a>
+                  <h1><span>Stronger</span> <span style="color: var(--lavender)">browser support</span></h1>
+                </div>
+
                 <div class="slide center">
-                  <a class="link-only" href="#this-prezo" accesskey="0"></a>
+                  <h1>Media Query Range Syntax</h1>
+                </div>
+
+                <div class="slide center">
+                  <h1>HD Color & Color Functions</h1>
+                </div>
+
+                <div class="slide center">
+                  <h1>CSS Nesting</h1>
+                </div>
+
+                <div class="slide center">
+                  <h1>Subgrid</h1>
+                </div>
+
+                <div class="slide center">
+                  <a class="link-only" href="#this-prezo" accesskey="w"></a>
                     <blockquote>🤫 This presentation is fully built with vanilla CSS & HTML*</blockquote>
                   <p>*with some iframes for demos due to laziness</p>
                 </div>
@@ -1096,16 +1112,17 @@ animation-timeline: view();
                 </div>
 
                 <div class="slide at-top">
+                  <a class="link-only" href="#end" accesskey="e"></a>
                   <h2 style="font-size: 2.5rem">Navigation with HTML <code>accesskey</code></h2>
                   <ul style="text-align: left; gap: 1rem; display: grid;">
-                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>1</kbd> = Intro</li>
-                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>2</kbd> = Grid functions</li>
-                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>3</kbd> = Math functions</li>
-                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>4</kbd> = Trigonometric functions</li>
-                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>5</kbd> = Popover & Anchor</li>
-                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>6</kbd> = :has()</li>
-                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>7</kbd> = Container queries</li>
+                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>1</kbd> = Better UI Capabilities</li>
+                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>2</kbd> = Animating popovers</li>
+                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>3</kbd> = Anchor positioning</li>
+                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>4</kbd> = Selectlist</li>
+                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>5</kbd> = Faster Interactions</li>
+                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>6</kbd> = View Transitions</li>
                     <li>...</li>
+                    <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>e</kbd> = This slide</li>
                   </ul>
                 </div>
 
@@ -1116,27 +1133,29 @@ animation-timeline: view();
                 </div>
 
                 
-              <div id="slide-x" class="slide center">
+              <div class="slide center">
                   <blockquote>The best way to level up your developer skillset is to get good at CSS and HTML</blockquote>
               </div>
 
-              <div id="slide-x" class="slide center">
+              <div class="slide center">
                 <blockquote>Leverage the browser</blockquote>
             </div>
 
-              <div id="slide-x" class="slide center">
+              <div class="slide center">
                 <blockquote>Don't underestimate the power of the platform</blockquote>
               </div>
 
               <div class="slide center">
+                <blockquote>Stay in the know</blockquote>
+                <br>
                 <h2 class="callout-link">web.dev</h2>
                 <h2 class="callout-link">developer.chrome.com</h2>
               </div>
 
               <div id="slide-end" class="slide at-top">
-                <a class="link-only" href="#end" accesskey="="></a>
-                <h1>Thank you</h1>
-                <figure class="last-qr"><img src="img/collection_link.png" alt=""></figure>
+                <a class="link-only" href="#end" accesskey="r"></a>
+                <h1>Thank you Full Stack folks!</h1>
+                <!-- <figure class="last-qr"><img src="img/collection_link.png" alt=""></figure> -->
                 <h2>Find me on the internet!</h2>
                 <ul class="links end-links">
                   <li>Twitter: <span>@una</span></li>
