@@ -17,9 +17,13 @@
                     <h1 class="capitalize">Better, Faster, Stronger Web UI</h1>
                     <p class="intro fun-font">Una Kravets <span class="red">&hearts;</span> una.im <br> Google Chrome DevRel</p>
                 </div>
-                <div class="slide center">
+                <!-- <div class="slide center">
                   -- MUSIC --
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/DpPueG9Fkxs?si=fNyvvm72gQx56vSg&amp;start=43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div> -->
+
+                <div  class="slide center">
+                  <blockquote>Web UI has been evolving faster than ever</blockquote>
                 </div>
                 
                 <div class="slide center pre-intro">
@@ -44,6 +48,10 @@
                 <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
                   <a class="link-only" href="#popover" accesskey=1></a>
                   <h1><span>Better</span> <span style="color: var(--lavender)">UI capabilities</span></h1>
+                </div>
+
+                <div class="slide center">
+                  <blockquote>popover attribute</blockquote>
                 </div>
 
                 <div class="slide center" style="background-image: url(./img/pop-ups.webp);">
@@ -181,6 +189,10 @@ transition: transform 0.5s,
                   </div>
                 </div>
 
+                <!-- <div class="slide center">
+                  Demo here of dialog element with dialog support
+                </div> -->
+
                 <!-- Beyond popover: animating to and from display:none with allow-discrete -->
 
                 <div class="slide center">
@@ -315,8 +327,7 @@ deleteListItem() {
               
               <div class="slide">
                 <div class="two-by">
-<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">
-:root {
+<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">:root {
   --spacer: 0.5rem;
 }
 
@@ -337,12 +348,146 @@ deleteListItem() {
   translate: -50% 0;
 }</style>
                 <div class="demo">
-                  <div class="resize tooltip-demo">
-                    <button id="question-mark" popovertarget="my-tooltip">
+                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
+                    <button id="question-mark-1" popovertarget="my-tooltip">
                       <p>?</p>
                     </button>
                     
-                    <div id="my-tooltip" class="tooltip" anchor="question-mark" popover>
+                    <div id="my-tooltip" class="tooltip" anchor="question-mark-1" popover>
+                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="two-by">
+<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">
+@position-fallback --top-then-bottom-1 {
+  @try {
+    bottom: calc(anchor(top) + var(--spacer));
+    left: anchor(center);
+  }
+
+  @try {
+    top: calc(anchor(bottom) + var(--spacer));
+    left: anchor(center);
+  }
+}
+
+.demo-bounds {
+  anchor-name: --bounds;
+}
+
+#question-mark-1 {
+  anchor-name: --button;
+}
+
+#my-tooltip-1 {
+  anchor-default: --button;
+  position-fallback: --top-then-bottom-1;
+  position-fallback-bounds: --bounds;
+  translate: -50% 0;
+}</style>
+                <div class="demo">
+                  <div class="resize tooltip-demo demo-bounds" style="border: 1px solid white;">
+                    <button id="question-mark-1" popovertarget="my-tooltip-1">
+                      <p>?</p>
+                    </button>
+                    
+                    <div id="my-tooltip-1" class="tooltip" anchor popover>
+                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="two-by">
+<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">/* COMING SOON */
+
+:root {
+  --spacer: 0.5rem;
+}
+
+@position-fallback --top-then-bottom-2 {
+  @try {
+    margin-bottom: var(--spacer);
+  }
+
+  @try {
+    margin-top: var(--spacer);
+  }
+}
+
+#my-tooltip-2 {
+  position-fallback: --top-then-bottom;
+  justify-self: anchor-center; /* NEW (NOT YET IMPL.) */
+}</style>
+                <div class="demo">
+                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
+                    <button id="question-mark-2" popovertarget="my-tooltip-2">
+                      <p>?</p>
+                    </button>
+                    
+                    <div id="my-tooltip-2" class="tooltip" anchor="question-mark-2" popover>
+                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="two-by">
+<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">/* FURTHER FUTURE (NOT YET IMPL.) */
+
+:root {
+  --spacer: 0.5rem;
+}
+
+#my-tooltip-3 {
+  margin-bottom: var(--spacer);
+  bottom: anchor(top);
+  justify-self: anchor-center;
+  position-fallback-auto: flip-y; /* AUTO FLIP*/
+}</style>
+                <div class="demo">
+                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
+                    <button id="question-mark-3" popovertarget="my-tooltip-3">
+                      <p>?</p>
+                    </button>
+                    
+                    <div id="my-tooltip-3" class="tooltip" anchor="question-mark-3" popover>
+                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="two-by">
+<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">/* FURTHER FUTURE (NOT YET IMPL.) */
+
+:root {
+  --spacer: 0.5rem;
+}
+
+#my-tooltip-4 {
+  margin-bottom: var(--spacer);
+  inset-area: top / all; /* Inset grid-based positioning */
+  position-fallback-auto: flip-y; 
+}</style>
+                <div class="demo">
+                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
+                    <button id="question-mark-4" popovertarget="my-tooltip-4">
+                      <p>?</p>
+                    </button>
+                    
+                    <div id="my-tooltip-4" class="tooltip" anchor="question-mark-4" popover>
                       <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
                     </div>
                   </div>
@@ -352,17 +497,24 @@ deleteListItem() {
 
               <div class="slide">
                   <div class="resize tooltip-demo">
-                    <button id="question-mark-2">
+                    <button id="question-mark-5">
                       <p>?</p>
                     </button>
-                    <div class="tooltip non-popover" anchor="question-mark-2">
+                    <div class="tooltip non-popover" anchor="question-mark-5">
                       <p>I am a non-popover anchored tooltip with more information. I am a non-popover anchored tooltip with more information. I am a non-popover anchored tooltip with more information. I am a non-popover anchored tooltip with more information.<p>
                     </div>
                 </div>
               </div>
 
               <div class="slide center">
-                NEW anchor updates (tether, auto flip)
+                <h2>Recap: Anchor Spec Changes — Coming Soon to Canary</h2>
+                <ul style="text-align: left; gap: 1rem; display: grid;">
+                  <li><code>anchor-center</code> alignment</li>
+                  <li>grid-based syntax (<code>inset-area</code>)</li>
+                  <li>auto-positioning (i.e. <code>position-fallback-auto: flip-y</code>)</li>
+                  <li><code>::tether</code> pseudo element (i.e arrow)</li>
+                  <li>Scoping anchor names</li>
+                </ul>
               </div>
 
               <div class="slide center">
@@ -444,6 +596,16 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                         <p>❌</p>
                       </li>
                   </ul>
+              </div>
+
+              <div class="slide center">
+                <div class="codepen-link-container">
+                  <label class="codepen-link-checkbox">
+                    <input type="checkbox" name="codepen-link" />
+                  </label>
+                  <img src="img/screaming-jonah-hill.gif" alt="" class="codepen-link-qr">
+                </div>
+                <blockquote>Stylable, accessible dropdowns are coming!!!</blockquote>
               </div>
 
               <div class="slide center">
@@ -531,6 +693,10 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                 <iframe style="height: 80%; margin: auto;"src="https://codepen.io/una/debug/NWebmZw" frameborder="0"></iframe>
               </div>
 
+              <!-- <div class="slide center">
+                TODO: Demo with the Gmail select showing styling to represent just the icon showing
+              </div> -->
+
               <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
                 <a class="link-only" href="#popover" accesskey=5></a>
                 <h1><span>Faster</span> <span style="color: var(--lavender)">interactions</span></h1>
@@ -547,7 +713,7 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                   <ul class="fade-in-on-hover browser-support" tabindex="0">
                     <li>
                         <img src="img/chromium_256x256.png" alt="Chromium">
-                        <p>Soon ⚠️</p>
+                        <p>May 2023</p>
                     </li>
                     <li>
                       <img src="img/safari_256x256.png" alt="Webkit">
@@ -555,13 +721,13 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                     </li>
                     <li>
                         <img src="img/firefox_256x256.png" alt="Firefox">
-                        <p>❌</p>
+                        <p>Behind Flag</p>
                     </li>
                 </ul>
               </div>
 
-              <div class="slide">
-                <iframe src="https://codepen.io/una/debug/YzRebYK/adb103797f45870183c78ac73056b6f2" frameborder="0"></iframe>
+              <div class="slide center">
+                <iframe class="mini-phone" src="https://codepen.io/una/debug/YzRebYK/adb103797f45870183c78ac73056b6f2" frameborder="0"></iframe>
               </div>
 
               <div class="slide">
@@ -592,19 +758,7 @@ blockquote {
               </div>
 
               <div class="slide">
-                <img src="./img/v6rDNCu6XO8Nh5ujx0yw.avif" alt="">
-              </div>
-
-              <div class="side">
-                <iframe src="https://developer.chrome.com/blog/scroll-animation-performance-case-study/" frameborder="0"></iframe>
-              </div>
-
-              <div class="slide">
                 <iframe src="https://codepen.io/bramus/debug/OJrxBaL/3069957ece86b0c8aafb4a249ff9271a" frameborder="0"></iframe>
-              </div>
-
-              <div class="slide center">
-                <iframe src="https://scroll-driven-animations.style/demos/cover-flow/css/" frameborder="0"></iframe>
               </div>
 
               <div class="slide center">
@@ -620,6 +774,14 @@ blockquote {
               </div>
 
               <div class="slide">
+                <img src="./img/v6rDNCu6XO8Nh5ujx0yw.avif" alt="">
+              </div>
+
+              <div class="side">
+                <iframe src="https://developer.chrome.com/blog/scroll-animation-performance-case-study/" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide">
                 <video src="./img/jEhFBLHvDb9W0VFFupYz.mp4" autoplay controls loop></video>
               </div>
 
@@ -627,22 +789,88 @@ blockquote {
                 <h2>...speaking of animations...</h2>
               </div>
 
+              <div class="slide top center code-concept-intro">
+                <a href="#view-transitions" accesskey="6"></a>
+                <h2>View Transitions</h2>
+                <ul class="three-by">
+                    <li><code class="pink-bg">view-transition-name</code></li>
+                    <li><code class="lavender-bg">document.startViewTransition()</code></li>
+                </ul>
+                <ul class="fade-in-on-hover browser-support" tabindex="0">
+                  <li>
+                      <img src="img/chromium_256x256.png" alt="Chromium">
+                      <p>March 2023 (SPA)</p>
+                  </li>
+                  <li>
+                    <img src="img/safari_256x256.png" alt="Webkit">
+                    <p>❌</p>
+                  </li>
+                  <li>
+                      <img src="img/firefox_256x256.png" alt="Firefox">
+                      <p>❌</p>
+                  </li>
+              </ul>
+            </div>
+
+              <div class="slide">
+                <h2 style="position: absolute; text-align: center; width: 100%">Discrete animations</h2>
+                <div class="two-by">
+                  <code style="font-size: 1.5rem; width: 700px; margin: 2rem 0;"><pre>
+document.querySelectorAll('.delete-btn')
+  .forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement
+         .classList.add('fade-out');
+    }
+  )
+})
+                  </pre></code>
+                </div>
+                
+                <iframe style="height: 80%; margin: auto;" src="https://codepen.io/una/debug/WNYqzGx" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide">
+                <h2 style="position: absolute; text-align: center; width: 100%">View transition (default)</h2>
+                <div class="two-by">
+                  <code style="font-size: 1.5rem; width: 700px; margin: 2rem 0;"><pre>
+document.querySelectorAll('.delete-btn')
+  .forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          btn.parentElement.remove();
+        });
+      } else {
+        btn.parentElement.remove();
+      }
+    }
+  )
+})
+                  </pre></code>
+                </div>
+                
+                <iframe style="height: 80%; margin: auto;"src="https://codepen.io/una/debug/eYbOOQp" frameborder="0"></iframe>
+              </div>
+
+              <!-- <div class="slide">
+                CSS with named transitions for the demo
+              </div>
+
+              <div class="slide">
+                CSS with altered transitions
+              </div> -->
+
               <div class="slide center">
-                <h2>View Transitions!</h2>
-                <a class="link-only" href="#popover" accesskey=6></a>
-                UPDATE TO BE INTRO SLIDE
+                <iframe class="mini-phone" style="width: 700px" src="https://codepen.io/una/debug/GRPWRrd" frameborder="0"></iframe>
               </div>
 
-              <div class="slide">
-                example from animating to and from display:none, then show that with VT
+              <div class="slide center">
+                <iframe class="mini-phone" src="https://codepen.io/una/debug/qBLXMqq/4e4ea062e704e6ea7d93b4fc5a856935" frameborder="0"></iframe>
               </div>
-
+              
               <div class="slide">
-                VIEW TRANSITIONS
-              </div>
-
-              <div class="slide">
-                (playlist up-next demo)
+                <iframe class="mini-phone" style="margin-top: 2rem" src="https://live-transitions.pages.dev/" frameborder="0"></iframe>
               </div>
 
               <div class="slide center" style="    background: url(./img/Daft_Punk_in_2013.jpg); background-size: cover;">
@@ -716,10 +944,6 @@ blockquote {
                     <style class="display" style="font-size: 1.5rem; white-space: pre-wrap; width: 780px;" contenteditable>/* 5 or more items display next to each other */
 .qq-demo ul:has(:nth-child(n + 5)) li {
   display: inline;
-}
-
-.qq-demo ul:has(:nth-child(n + 5)) {
-  background: yellow;
 }
 
 /* Adds semicolon after each item except last one */
@@ -826,6 +1050,27 @@ blockquote {
                 </div>
               </div> 
 
+              <div class="slide center">
+                <iframe src="https://una.im/blog/" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                <code style="font-size: 1.5rem;">
+                  <pre>@supports selector(:has(a)) {
+  .post {
+    display: none;
+  }
+
+  .filter-bar:has(#css-tag:checked) ~ .posts .post:has([data-tag="CSS"]),
+  .filter-bar:has(#html-tag:checked) ~ .posts .post:has([data-tag="HTML"]),
+  .filter-bar:has(#js-tag:checked) ~ .posts .post:has([data-tag="JavaScript"]),
+  ... {
+    display: block;
+  }
+}</pre>
+                </code>
+              </div>
+
                 
 
                 <!-- 08. Container Queries -->
@@ -880,10 +1125,10 @@ blockquote {
                   </div>
                 </div>
 
-                <div class="slide">
+                <div class="slide center">
                   <div style="resize: both;
                   overflow: auto; width: 1200px; height: 750px; border: 2px solid var(--code-border);">
-                    <iframe src="https://codepen.io/una/debug/ZEqmaRP" frameborder="0"></iframe>
+                    <iframe style="background: white" src="https://codepen.io/una/debug/ZEqmaRP" frameborder="0"></iframe>
                   </div>
                 </div>
 
@@ -921,7 +1166,7 @@ blockquote {
 
                 <!-- 07. Style Queries -->
                 
-                <div id="cq-1" class="slide top center code-concept-intro">
+                <!-- <div id="cq-1" class="slide top center code-concept-intro">
                   <a class="link-only" href="#style-queries" accesskey=9></a>
                     
                     <h2>Style Queries</h2>
@@ -932,7 +1177,7 @@ blockquote {
                     <ul class="fade-in-on-hover browser-support" tabindex="0">
                       <li>
                           <img src="img/chromium_256x256.png" alt="Chromium">
-                          <p>Mar 2023 ⚠️</p>
+                          <p>Mar 2023</p>
                       </li>
                       <li>
                         <img src="img/safari_256x256.png" alt="Webkit">
@@ -943,13 +1188,13 @@ blockquote {
                           <p>❌</p>
                       </li>
                   </ul>
-                </div>
+                </div> -->
 
                 <!-- <div id="cq-4" class="slide">
                   <img src="img/sq-1.png" alt="">
                 </div> -->
 
-                <div id="cq-5" class="slide center">
+                <!-- <div id="cq-5" class="slide center">
                     <div class="codepen-link-container">
                       <label class="codepen-link-checkbox">
                         <input type="checkbox" name="codepen-link" />
@@ -964,9 +1209,9 @@ blockquote {
                     overflow: auto; width: 900px; height: 300px; border: 2px solid var(--code-border);">
                       <iframe src="https://codepen.io/web-dot-dev/debug/KKxzYQx" frameborder="0"></iframe>
                     </div>
-                </div>
+                </div> -->
                 
-                <div id="cq-5" class="slide center">
+                <!-- <div id="cq-5" class="slide center">
                   <h2>Future</h2>
                   <code style="margin-bottom: 2rem">@container style(--rain) { .card { ... } }</code>
                   <code style="margin-bottom: 2rem">@container style(25% <= --rain <= 50%) { .card { ... } }</code>
@@ -975,11 +1220,11 @@ blockquote {
                   overflow: auto; width: 900px; height: 300px; border: 2px solid var(--code-border);">
                     <iframe src="https://codepen.io/web-dot-dev/debug/KKxzYQx" frameborder="0"></iframe>
                   </div>
-              </div>
+              </div> -->
 
                 <div id="property-1" class="slide center">
                   <a class="link-only" href="#at-property" accesskey=0></a>
-                  <h2>Made possible by... <code>@property</code></h2>
+                  <h2>And don't forget... <code>@property</code></h2>
                     <ul class="fade-in-on-hover browser-support" tabindex="0">
                       <li>
                           <img src="img/chromium_256x256.png" alt="Chromium">
@@ -991,7 +1236,7 @@ blockquote {
                       </li>
                       <li>
                           <img src="img/firefox_256x256.png" alt="Firefox">
-                          <p>Nightly</p>
+                          <p>December 2023</p>
                       </li>
                   </ul>
                 </div>
@@ -1055,7 +1300,38 @@ blockquote {
                 </div>
 
                 <div class="slide center">
+                  <blockquote>Went Stable Crossbrowser in 2023</blockquote>
+                </div>
+
+                <div class="slide center">
                   <h1>Media Query Range Syntax</h1>
+                </div>
+
+                <div class="slide" style="font-size: 1.9rem;">
+                  <div class="two-by">
+                  <div style="display: grid">
+                      <p>Old</p>
+                      <code><pre>
+@media (max-width: 400px) {
+  ...
+}
+
+@container (min-inline-size: 300px) 
+       and (max-inline-size: 599px) {
+  ...
+}</pre></code></div>
+              <div style="display: grid">
+                  <p>New</p>
+                  <code><pre>
+@media (width <= 400px) {
+  ...
+}
+
+@container (300px <= inline-size < 600px) {
+  ...
+}</pre></code>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="slide center">
@@ -1063,7 +1339,61 @@ blockquote {
                 </div>
 
                 <div class="slide center">
+                  <iframe src="https://gradient.style/" frameborder="0"></iframe>
+                </div>
+
+                <div class="slide center">
+                  <iframe style="background: white" src="https://cdpn.io/pen/debug/MWqRNya" frameborder="0"></iframe>
+                </div>
+
+                <div class="slide center">
                   <h1>CSS Nesting</h1>
+                </div>
+
+                <div class="slide">
+                <div class="two-by">
+                <div style="display: grid">
+                  <p>This:</p>
+                  <code style="font-size: 1.5rem"><pre>.card {
+  /* card styles */
+}
+
+.card  .title {
+  /* element styles */
+}
+
+.card:hover {
+  /* modifier styles */
+}
+
+.card:focus {
+  /* modifier styles */
+}
+
+@container (width >= 300px) {
+  .card {
+    /* CQ styles */
+  }
+}</pre></code>
+                    </div>
+                  <div style="display: grid">
+                      <p>Becomes...</p>
+                      <code style="font-size: 1.5rem"><pre>.card {
+  /* card styles */
+
+  .title {
+    /* element styles */
+  }
+
+  &:hover, &:focus {
+    /* modifier styles */
+  }
+
+  @container (width >= 300px) {
+    /* CQ styles */
+  }
+}</pre></code></div>
+                  </div>
                 </div>
 
                 <div class="slide center">
@@ -1113,16 +1443,16 @@ blockquote {
                 </div>
 
                 
-              <div class="slide center">
-                  <blockquote>The best way to level up your developer skillset is to get good at CSS and HTML</blockquote>
-              </div>
+              <!-- <div class="slide center">
+                  <blockquote>The best way to level up your web development skillset is to get good at CSS and HTML</blockquote>
+              </div> -->
 
               <div class="slide center">
-                <blockquote>Leverage the browser</blockquote>
+                <blockquote>Leverage CSS and HTML</blockquote>
             </div>
 
               <div class="slide center">
-                <blockquote>Don't underestimate the power of the platform</blockquote>
+                <blockquote>Don't underestimate the power of the platform!</blockquote>
               </div>
 
               <div class="slide center">
@@ -1134,7 +1464,7 @@ blockquote {
 
               <div id="slide-end" class="slide at-top">
                 <a class="link-only" href="#end" accesskey="r"></a>
-                <h1>Thank you Full Stack folks!</h1>
+                <h1>Thank you!</h1>
                 <!-- <figure class="last-qr"><img src="img/collection_link.png" alt=""></figure> -->
                 <h2>Find me on the internet!</h2>
                 <ul class="links end-links">
