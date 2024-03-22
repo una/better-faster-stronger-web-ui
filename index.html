@@ -32,9 +32,9 @@
                   <h2><b>Stronger</b> <span>resilient components</span></h2>
                 </div>
 
-                <div  class="slide center">
+                <!-- <div  class="slide center">
                   <blockquote class="strike-hover">Stop writing JavaScript</blockquote>
-                </div>
+                </div> -->
 
                 <div  class="slide center">
                   <blockquote>Separate your application logic from your styling logic</blockquote>
@@ -63,7 +63,7 @@
 
                 <div id="popover-intro" class="slide center top code-concept-intro">
                   <h2><code>popover</code> attribute</h2>
-                  <p class="brief">Built-in accessibility semantics, keyboard behavior, tab focus management, and (optional) light-dismiss</p>
+                  <p class="brief">Built-in accessibility via keyboard behavior, tab focus management, top-layer support, and (optional) light-dismiss</p>
                   <ul class="fade-in-on-hover browser-support" tabindex="0">
                     <li>
                       <img src="img/chromium_256x256.png" alt="Chromium">
@@ -75,9 +75,13 @@
                     </li>
                     <li>
                       <img src="img/firefox_256x256.png" alt="Firefox">
-                      <p>Behind flag</p>
+                      <p>May 2024 (soon)</p>
                     </li>
                 </ul>
+              </div>
+
+              <div class="slide center">
+                <h1>RIP React Portals</h1>
               </div>
 
               <div class="slide center">
@@ -264,7 +268,9 @@ deleteListItem() {
                   <ul class="three-by" style="font-size: 40px">
                     <li><code class="pink-bg">anchor=""</code></li>
                     <li><code class="lavender-bg">anchor()</code></li>
-                    <li><code class="blue-bg">@try {}</code></li>
+                    <li><code class="blue-bg">@position-try {}</code></li>
+                    <li><code class="pink-bg">inset-area</code></li>
+                    <li><code class="lavender-bg">flip-x/y</code></li>
                 </ul>
                   <ul class="fade-in-on-hover browser-support" tabindex="0">
                     <li>
@@ -302,7 +308,7 @@ deleteListItem() {
               </div>
 
               <div class="slide center">
-                <h2>CSS</h2>
+                <h2>anchor()</h2>
                 <code>
                   <pre>#profile-settings-popover {
   bottom: calc(anchor(top) + var(--spacer));
@@ -311,11 +317,27 @@ deleteListItem() {
                 </code>
               </div>
 
+              <div class="slide center">
+                <h2>inset-area</h2>
+                <code>
+                  <pre>#profile-settings-popover {
+  inset-area: top span-left;
+}</pre>
+                </code>
+              </div>
+
+              <div class="slide center">
+                <iframe style="background: ghostwhite;
+                padding: 1rem;" src="https://una.github.io/anchor-tool/" frameborder="0"></iframe>
+                <p>una.github.io/anchor-tool/</p>
+              </div>
+
               <div class="slide">
                 <div class="two-by">
                   <code><pre>[popover] {
-  bottom: calc(anchor(top) + 1rem);
-  right: calc(anchor(right));
+  position: absolute;
+  inset-area: top span-left;
+  margin-bottom: 1rem;
 }</pre></code>
                 <iframe class="mini-phone"style="font-size: 1.5rem; width: 500px;margin: 2rem 0; background: white;" src="https://codepen.io/una/debug/vYVLVVG" frameborder="0"></iframe>
                 </div>
@@ -325,197 +347,39 @@ deleteListItem() {
                 <iframe class="mini-phone" style="width: 600px" src="https://codepen.io/una/debug/vYVLVVG" frameborder="1"></iframe>
               </div> -->
               
-              <div class="slide">
-                <div class="two-by">
-<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">:root {
-  --spacer: 0.5rem;
+              <div class="slide center">
+                <h2>Position try options</h2>
+<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">@position-try --top {
+  inset-area: top;
 }
 
-@position-fallback --top-then-bottom {
-  @try {
-    bottom: calc(anchor(top) + var(--spacer));
-    left: anchor(center);
-  }
-
-  @try {
-    top: calc(anchor(bottom) + var(--spacer));
-    left: anchor(center);
-  }
-}
-
-#my-tooltip {
-  position-fallback: --top-then-bottom;
-  translate: -50% 0;
-}</style>
-                <div class="demo">
-                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
-                    <button id="question-mark-1" popovertarget="my-tooltip">
-                      <p>?</p>
-                    </button>
-                    
-                    <div id="my-tooltip" class="tooltip" anchor="question-mark-1" popover>
-                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="slide">
-                <div class="two-by">
-<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">
-@position-fallback --top-then-bottom-1 {
-  @try {
-    bottom: calc(anchor(top) + var(--spacer));
-    left: anchor(center);
-  }
-
-  @try {
-    top: calc(anchor(bottom) + var(--spacer));
-    left: anchor(center);
-  }
-}
-
-.demo-bounds {
-  anchor-name: --bounds;
+@position-try --bottom {
+  inset-area: bottom;
 }
 
 #question-mark-1 {
-  anchor-name: --button;
-}
-
-#my-tooltip-1 {
-  anchor-default: --button;
-  position-fallback: --top-then-bottom-1;
-  position-fallback-bounds: --bounds;
-  translate: -50% 0;
+  position-try-options: --top, --bottom;
+  position-try-order: most-height;
 }</style>
-                <div class="demo">
-                  <div class="resize tooltip-demo demo-bounds" style="border: 1px solid white;">
-                    <button id="question-mark-1" popovertarget="my-tooltip-1">
-                      <p>?</p>
-                    </button>
-                    
-                    <div id="my-tooltip-1" class="tooltip" anchor popover>
-                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="slide">
-                <div class="two-by">
-<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">/* COMING SOON */
-
-:root {
-  --spacer: 0.5rem;
-}
-
-@position-fallback --top-then-bottom-2 {
-  @try {
-    margin-bottom: var(--spacer);
-  }
-
-  @try {
-    margin-top: var(--spacer);
-  }
-}
-
-#my-tooltip-2 {
-  position-fallback: --top-then-bottom;
-  justify-self: anchor-center; /* NEW (NOT YET IMPL.) */
-}</style>
-                <div class="demo">
-                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
-                    <button id="question-mark-2" popovertarget="my-tooltip-2">
-                      <p>?</p>
-                    </button>
-                    
-                    <div id="my-tooltip-2" class="tooltip" anchor="question-mark-2" popover>
-                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="slide">
-                <div class="two-by">
-<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">/* FURTHER FUTURE (NOT YET IMPL.) */
-
-:root {
-  --spacer: 0.5rem;
-}
-
-#my-tooltip-3 {
-  margin-bottom: var(--spacer);
-  bottom: anchor(top);
-  justify-self: anchor-center;
-  position-fallback-auto: flip-y; /* AUTO FLIP*/
-}</style>
-                <div class="demo">
-                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
-                    <button id="question-mark-3" popovertarget="my-tooltip-3">
-                      <p>?</p>
-                    </button>
-                    
-                    <div id="my-tooltip-3" class="tooltip" anchor="question-mark-3" popover>
-                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="slide">
-                <div class="two-by">
-<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">/* FURTHER FUTURE (NOT YET IMPL.) */
-
-:root {
-  --spacer: 0.5rem;
-}
-
-#my-tooltip-4 {
-  margin-bottom: var(--spacer);
-  inset-area: top / all; /* Inset grid-based positioning */
-  position-fallback-auto: flip-y; 
-}</style>
-                <div class="demo">
-                  <div class="tooltip-demo" style="border: none; margin-bottom: 20rem;">
-                    <button id="question-mark-4" popovertarget="my-tooltip-4">
-                      <p>?</p>
-                    </button>
-                    
-                    <div id="my-tooltip-4" class="tooltip" anchor="question-mark-4" popover>
-                      <p>I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information. I am a popover tooltip with more information.<p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="slide">
-                  <div class="resize tooltip-demo">
-                    <button id="question-mark-5">
-                      <p>?</p>
-                    </button>
-                    <div class="tooltip non-popover" anchor="question-mark-5">
-                      <p>I am a non-popover anchored tooltip with more information. I am a non-popover anchored tooltip with more information. I am a non-popover anchored tooltip with more information. I am a non-popover anchored tooltip with more information.<p>
-                    </div>
-                </div>
               </div>
 
               <div class="slide center">
-                <h2>Recap: Anchor Spec Changes — Coming Soon to Canary</h2>
-                <ul style="text-align: left; gap: 1rem; display: grid;">
-                  <li><code>anchor-center</code> alignment</li>
-                  <li>grid-based syntax (<code>inset-area</code>)</li>
-                  <li>auto-positioning (i.e. <code>position-fallback-auto: flip-y</code>)</li>
-                  <li><code>::tether</code> pseudo element (i.e arrow)</li>
-                  <li>Scoping anchor names</li>
-                </ul>
+                <h2>Auto flip position try keywords</h2>
+<style style="font-size: 1.25rem; white-space: pre-wrap; width: 100%; margin: 2rem 0;" contenteditable class="display">#myPopover {
+  position: fixed;
+  top: anchor(--button bottom);
+  left: anchor(--button left);
+  position-try-options: flip-inline, flip-block, flip-block flip-inline;
+
+  /* The popover is at least as wide as the button */
+  min-width: anchor-size(--button width);
+
+  /* The popover is at least as tall as 2 menu items */
+  min-height: 6em;
+}</style>
               </div>
+
+              
 
               <div class="slide center">
                 <iframe style="height: 60%; scale: 2;" src="https://codepen.io/web-dot-dev/debug/XWxPBdr" frameborder="0"></iframe>
@@ -526,9 +390,10 @@ deleteListItem() {
 
               <div class="slide center">
                 <figure>
-                  <img src="img/radial-diagram.png" alt="">
+                  <img src="img/radial-diagram.png" style="filter:invert()" alt="">
                 </figure>
               </div>
+              
 
                 <div class="slide center" style="padding-top: 2rem; justify-content: start;">
                   <code style="text-align: left;
@@ -541,7 +406,7 @@ transition: transform 0.3s var(--delay) ease;
 }</pre></code><figure>
 <img style="height: 450px;
 margin-top: -2.5rem;
-margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
+margin-bottom: -5.5rem;" src="img/radial-diagram.png" style="filter:invert()" alt="">
 </figure>
                 </div>
 
@@ -555,7 +420,7 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                   <div class="two-by" style="align-items: center; grid-template-columns: 1fr 2fr;">
                     <iframe src="https://codepen.io/una/debug/VwGRpXN" frameborder="0"></iframe>
                     <figure>
-                      <img src="img/radial-diagram.png" alt="">
+                      <img src="img/radial-diagram.png" style="filter:invert()" alt="">
                     </figure>
                   </div>
               </div>
@@ -580,12 +445,12 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
 
               <div class="slide center top code-concept-intro">
                 <a class="link-only" href="#selectlist" accesskey=4></a>
-                <h2><code>selectlist</code> element</h2>
-                    <p class="brief">A semantic list of options you can select from and fully customize, with both style and content.</p>
+                <h2><code>select</code> v2</h2>
+                    <p class="brief">A selectable list of options you can fully customize, with both style and content, building on the existing select element</p>
                     <ul class="fade-in-on-hover browser-support" tabindex="0">
                       <li>
                         <img src="img/chromium_256x256.png" alt="Chromium">
-                        <p>Canary</p>
+                        <p>❌</p>
                       </li>
                       <li>
                         <img src="img/safari_256x256.png" alt="Webkit">
@@ -668,11 +533,11 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
                 <div class="two-by">
                   <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>
 
-&lt;selectlist class="country-select"&gt;
-  &lt;button type=selectlist&gt;
+&lt;select class="country-select"&gt;
+  &lt;button&gt;
     &lt;selectedoption&gt;&lt;/selectedoption&gt;
   &lt;/button&gt;
-  &lt;listbox&gt;
+  &lt;datalist&gt;
     &lt;option value="" hidden&gt;
       &lt;p&gt;Select a country&lt;/p&gt;
     &lt;/option&gt;
@@ -685,12 +550,41 @@ margin-bottom: -5.5rem;" src="img/radial-diagram.png" alt="">
       &lt;p&gt;Bolivia&lt;/p&gt;
     &lt;/option&gt;
     ...
-  &lt;/listbox&gt;
-&lt;/selectlist&gt;
+  &lt;/datalist&gt;
+&lt;/select&gt;
   </pre></code>
                 </div>
                 
                 <iframe style="height: 80%; margin: auto;"src="https://codepen.io/una/debug/NWebmZw" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide">
+                <div class="two-by">
+                  <code style="font-size: 1.5rem; width: 750px;margin: 2rem 0;"><pre>
+/* Fallback for older browsers */
+&lt;select class="country-select"&gt;
+  <s>&lt;button&gt;</s>
+    <s>&lt;selectedoption&gt;&lt;/selectedoption&gt;</s>
+  <s>&lt;/button&gt;</s>
+  <s>&lt;datalist&gt;</s>
+    &lt;option value="" hidden&gt;
+      &lt;p&gt;Select a country&lt;/p&gt;
+    &lt;/option&gt;
+    &lt;option value="andorra"&gt;
+    <s>&lt;img src="../Andorra.svg" /&gt;</s>
+      &lt;p&gt;Andorra&lt;/p&gt;
+    &lt;/option&gt;
+    &lt;option value="bolivia"&gt;
+    <s>&lt;img src="../Bolivia.svg.png" /&gt;</s>
+      &lt;p&gt;Bolivia&lt;/p&gt;
+    &lt;/option&gt;
+    ...
+  <s>&lt;/datalist&gt;</s>
+&lt;/select&gt;
+  </pre></code>
+                </div>
+                
+                <iframe style="height: 80%; margin: auto;"src="https://codepen.io/una/debug/jORWeJG" frameborder="0"></iframe>
               </div>
 
               <!-- <div class="slide center">
@@ -892,7 +786,7 @@ document.querySelectorAll('.delete-btn')
                       </li>
                       <li>
                         <img src="img/firefox_256x256.png" alt="Firefox">
-                        <p>Nightly</p>
+                        <p>December 2023</p>
                       </li>
                   </ul>
                 </div>
@@ -1044,11 +938,11 @@ document.querySelectorAll('.delete-btn')
                 </div>
               </div>
 
-              <div id="has-6" class="slide center">
+              <!-- <div id="has-6" class="slide center">
                 <div style="width: 1200px; height: 700px;">
                   <iframe src="https://codepen.io/una/debug/xxyGajm/0e064058f3589f4c3bb6225aa1104a3d" frameborder="0"></iframe>
                 </div>
-              </div> 
+              </div>  -->
 
               <div class="slide center">
                 <iframe src="https://una.im/blog/" frameborder="0"></iframe>
@@ -1236,7 +1130,7 @@ document.querySelectorAll('.delete-btn')
                       </li>
                       <li>
                           <img src="img/firefox_256x256.png" alt="Firefox">
-                          <p>December 2023</p>
+                          <p>Nightly</p>
                       </li>
                   </ul>
                 </div>
@@ -1300,7 +1194,7 @@ document.querySelectorAll('.delete-btn')
                 </div>
 
                 <div class="slide center">
-                  <blockquote>Went Stable Crossbrowser in 2023</blockquote>
+                  <blockquote>Went Stable Cross-browser recently</blockquote>
                 </div>
 
                 <div class="slide center">
@@ -1448,11 +1342,11 @@ document.querySelectorAll('.delete-btn')
               </div> -->
 
               <div class="slide center">
-                <blockquote>Leverage CSS and HTML</blockquote>
+                <blockquote>Leverage the power of the browser</blockquote>
             </div>
 
               <div class="slide center">
-                <blockquote>Don't underestimate the power of the platform!</blockquote>
+                <blockquote>Reduce complexity, improve velocity</blockquote>
               </div>
 
               <div class="slide center">
